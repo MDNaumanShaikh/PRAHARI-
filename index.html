@@ -332,8 +332,70 @@
                 width: 180px;
                 height: 10px;
             }
+            .prototype-link {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+                width: 85vw;
+                box-sizing: border-box;
+                justify-content: center;
+            }
+            .prototype-link-container {
+                margin-top: 30px;
+            }
         }
         
+        /* Prototype Link */
+        .prototype-link-container {
+            margin-top: 40px;
+            z-index: 10;
+            animation: fadeInDown 1s ease-out;
+            animation-delay: 0.5s;
+            animation-fill-mode: backwards;
+        }
+
+        .prototype-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 30px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prototype-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .prototype-link:hover {
+            background: rgba(255, 107, 0, 0.2);
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.3), inset 0 0 10px rgba(255, 107, 0, 0.2);
+            transform: translateY(-2px);
+            color: #fff;
+            border-color: var(--primary-light);
+        }
+
+        .prototype-link:hover::before {
+            left: 100%;
+        }
+
+        .link-icon {
+            font-size: 1.2rem;
+        }
+
         /* Troubleshooting Notice */
         .troubleshoot {
             margin-top: 30px;
@@ -410,6 +472,12 @@
         <div class="stand-base"></div>
     </div>
     
+    <div class="prototype-link-container">
+        <a href="https://prahari-prototype-code.vercel.app" target="_blank" class="prototype-link">
+            <span class="link-icon">🌐</span> Experience Live Portal
+        </a>
+    </div>
+
     <div class="troubleshoot" id="tsMsg" style="display:none;">
         <strong>Video not playing? (Error 153)</strong> YouTube restricts some videos from playing when opening directly from a local file (file://). To fix this, you will need to open this file using a local web server (like VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live Server</a> extension).
     </div>
